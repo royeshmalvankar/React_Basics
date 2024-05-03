@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JSX and Babel</title>
+  </head>
+  <style>
+    .main {
+      border: 1px solid black;
+      padding: 10px;
+      margin: 10px;
+      border-radius: 10px;
+      width: 20%;
+    }
+  </style>
+  <body>
+    <div id="root"></div>
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel">
+      // Your JSX code here
+
+      // captured an element from html by id
+      let rootElement = document.getElementById('root')
+
+      // created a variable with string value for dynamic return
+      let name = 'React'
+
+      // created a variable and stored React elements in it
+      let ele = (
+        <>
+        <p>React is a javascript library</p>
+        <div className="main">
+            <p>Click the below button to alert 'Hello'</p>
+            {/* created a button to alert dynamically  */}
+            <button onClick={() => alert(`Hello ${name}`)}>Click Me</button>
+        </div>
+        </>
+      )
+
+      // created a root element and rendered the element
+      ReactDOM.createRoot(rootElement).render(ele)
+    </script>
+  </body>
+</html>
